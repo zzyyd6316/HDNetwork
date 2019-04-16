@@ -406,13 +406,13 @@ static ResponseReduceBlock _responseReduceBlock;
     }else if (method == HDRequestMethodPOST) {
         sessionTask = [_sessionManager POST:url parameters:parameters progress:nil success:callback failure:failure];
     }else if (method == HDRequestMethodHEAD) {
-        sessionTask = [_sessionManager HEAD:url parameters:parameters success:nil failure:failure];
+        sessionTask = [_sessionManager HEAD:url parameters:parameters success:callback failure:failure];
     }else if (method == HDRequestMethodPUT) {
-        sessionTask = [_sessionManager PUT:url parameters:parameters success:nil failure:failure];
+        sessionTask = [_sessionManager PUT:url parameters:parameters success:callback failure:failure];
     }else if (method == HDRequestMethodPATCH) {
-        sessionTask = [_sessionManager PATCH:url parameters:parameters success:nil failure:failure];
+        sessionTask = [_sessionManager PATCH:url parameters:parameters success:callback failure:failure];
     }else if (method == HDRequestMethodDELETE) {
-        sessionTask = [_sessionManager DELETE:url parameters:parameters success:nil failure:failure];
+        sessionTask = [_sessionManager DELETE:url parameters:parameters success:callback failure:failure];
     }
     //添加最新的sessionTask到数组
     sessionTask ? [[self allSessionTask] addObject:sessionTask] : nil;
